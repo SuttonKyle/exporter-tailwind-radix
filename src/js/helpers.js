@@ -18,6 +18,11 @@ Pulsar.registerFunction(
         if (isCustom) {
           segments.shift();
         } else {
+          if (tokenGroup.name === "alpha") {
+            segments.pop();
+            segments.pop();
+            segments.push(`a${token.name}`);
+          }
           usePrefix = false;
         }
         break;
