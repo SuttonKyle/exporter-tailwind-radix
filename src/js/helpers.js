@@ -17,14 +17,13 @@ Pulsar.registerFunction(
         const isCustom = segments.length > 0 && segments[0] === "custom";
         if (isCustom) {
           segments.shift();
-        } else {
-          if (tokenGroup.name === "alpha") {
-            segments.pop();
-            segments.pop();
-            segments.push(`a${token.name}`);
-          }
-          usePrefix = false;
         }
+        if (tokenGroup.name === "alpha") {
+          segments.pop();
+          segments.pop();
+          segments.push(`a${token.name}`);
+        }
+        usePrefix = false;
         break;
       case "imx-color":
       case "imx-avatar":
