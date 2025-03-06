@@ -10,9 +10,7 @@ and their value rendered using `rendered-color` blueprint
 {[ for token in ds.tokensByType("Color", brand.id) ]}
     {[ let tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
     {[ let tokenRoot = tokenGroup.length === 0 ? "" : tokenGroup.path[0] /]}
-    {[ if tokenRoot !== "core-color" ]}
-    {[ inject "rendered-token-var" context token /]}
-    {[/]}
+    {[tokenRoot /]}-{[ inject "rendered-token-var" context token /]}
 
 {[/]}
 }
