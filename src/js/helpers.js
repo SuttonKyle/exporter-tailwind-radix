@@ -6,12 +6,30 @@ Pulsar.registerFunction(
   function (token, tokenGroup, prefix) {
     // Create array with all path segments and token name at the end
     const segments = [...tokenGroup.path];
+    const segmentsRoot = segments.length > 0 ? segments.shift() : "";
+    let usePrefix = prefix && prefix.length > 0;
     if (!tokenGroup.isRoot) {
       segments.push(tokenGroup.name);
     }
     segments.push(token.name);
+    switch(segmentsRoot) {
+      case "core-color":
+        const isCustom = segments.length > 0 && segments.shift();
+        if (!isCustom) {
+          usePrefix = false;
+        }
+      case "imx-color":
+      case "imx-avatar":
+        if (segments.length > 1) {
+          segments.shift();
+        }
+      case "imx-badge":
+        segments.shift();
+        segments.unshift("badge");
+    }
 
-    if (prefix && prefix.length > 0) {
+
+    if (usePrefix) {
       segments.unshift(prefix);
     }
 
