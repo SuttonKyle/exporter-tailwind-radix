@@ -21,5 +21,17 @@ Note: Token is passed as `context` property because it is injected
 {[ if !context.referencedToken ]}
 {{ #body }}
 {[ else ]}
-{{ context.referencedToken.origin }}-{{ context.referencedToken.name }}
+{[ let tokenGroup = ds.tokenGroupContainingTokenId(context.id) /]}
+{[ let prefix = "" /]}
+{[ switch context.tokenType ]}
+{[ case "Color" ]}{[ prefix = behavior.colorTokenPrefix /]}
+{[ case "Typography" ]}{[ prefix = behavior.typographyTokenPrefix /]}  
+{[ case "Shadow" ]}{[ prefix = behavior.shadowTokenPrefix /]}  
+{[ case "Border" ]}{[ prefix = behavior.borderTokenPrefix /]}  
+{[ case "Measure" ]}{[ prefix = behavior.measureTokenPrefix /]}  
+{[ case "Gradient" ]}{[ prefix = behavior.gradientTokenPrefix /]}  
+{[ default ]}{[ prefix = "" /]}  
+{[/]}
+{[ let tokenName = readableVariableName(context, tokenGroup, prefix) /]}
+{{ tokenName }}
 {[/]}
