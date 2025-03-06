@@ -18,14 +18,17 @@ Pulsar.registerFunction(
         if (!isCustom) {
           usePrefix = false;
         }
+        break;
       case "imx-color":
       case "imx-avatar":
         if (segments.length > 1) {
           segments.shift();
         }
+        break;
       case "imx-badge":
         segments.shift();
         segments.unshift("badge");
+        break;
     }
 
 
