@@ -21,5 +21,5 @@ Note: Token is passed as `context` property because it is injected
 {[ if !context.referencedToken ]}
 {{ #body }}
 {[ else ]}
-{{ #body }}
+{{ context.referencedToken }}
 {[/]}
