@@ -14,8 +14,10 @@ Pulsar.registerFunction(
     segments.push(token.name);
     switch(segmentsRoot) {
       case "core-color":
-        const isCustom = segments.length > 2 && segments.shift() === "custom";
-        if (!isCustom) {
+        const isCustom = segments.length > 0 && segments[0] === "custom";
+        if (isCustom) {
+          segments.shift();
+        } else {
           usePrefix = false;
         }
         break;
