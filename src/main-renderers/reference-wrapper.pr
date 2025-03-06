@@ -21,7 +21,5 @@ Note: Token is passed as `context` property because it is injected
 {[ if !context.referencedToken ]}
 {{ #body }}
 {[ else ]}
-{[ let tokenGroup = ds.tokenGroupContainingTokenId(context.id) /]}
-{[ let tokenName = readableVariableName(context, tokenGroup, "color") /]}
-{{ tokenName }}
+{[ inject "rendered-name" context referencedToken /]}:
 {[/]}
