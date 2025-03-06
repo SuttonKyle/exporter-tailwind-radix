@@ -27,6 +27,7 @@ Pulsar.registerFunction(
         break;
       case "imx-badge":
         segments.shift();
+        segments.shift();
         segments.unshift("badge");
         break;
     }
