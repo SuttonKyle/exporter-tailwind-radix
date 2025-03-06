@@ -13,6 +13,6 @@ and their value rendered using `rendered-color` blueprint
 {[ if (tokenRoot !== "core-color") ]}
     {[ inject "rendered-token-var" context token /]}
 {[/]}
-
 {[/]}
+
 }
