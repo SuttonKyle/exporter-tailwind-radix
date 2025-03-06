@@ -1,3 +1,4 @@
+
 {*
 
 Injectable blueprint that represents full token as key: value to be used inside :root {} declarations.
@@ -27,3 +28,4 @@ Rendered as:
 {[ if tokenRoot !== "core-color" ]}
 {[ let token = context /]}
 --{[ inject "rendered-name" context token /]}: {[ inject "rendered-value" context token /]}; {[ inject "rendered-description" context token /]}
+{[/]}
