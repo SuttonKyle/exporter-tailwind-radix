@@ -13,6 +13,7 @@ and their value rendered using `rendered-color` blueprint
 }
 
 {[ let brand = ds.currentBrand() /]}
+{[ let theme = ds.currentTheme() /]}
 @theme {
 {[ for token in ds.tokensByType("Color", brand.id) ]}
 {[ let tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
