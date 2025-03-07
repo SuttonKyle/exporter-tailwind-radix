@@ -26,14 +26,7 @@ Pulsar.registerFunction(
         usePrefix = false;
         break;
       case "imx-avatar":
-        segments.shift();
-        segments.unshift("avatar");
-        break;
       case "imx-badge":
-        segments.shift();
-        segments.shift();
-        segments.unshift("badge");
-        break;
       case "imx-color":
       case "imx-input":
         return cleanSentence(`${prefix} ${token.name}`, true);
