@@ -36,6 +36,7 @@ Pulsar.registerFunction(
         segments.unshift("badge");
         break;
       case "imx-color":
+      case "imx-input":
         return cleanSentence(`${prefix} ${token.name}`, true);
     }
 
