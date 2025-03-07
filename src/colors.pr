@@ -5,6 +5,13 @@ Tokens are named by their group path and then name,
 and their value rendered using `rendered-color` blueprint
 
 *}
+@layer base {
+  :root {
+    --white-full: #ffffff;
+    --black-full: #000000;
+  }
+}
+
 {[ let brand = ds.currentBrand() /]}
 @theme {
 {[ for token in ds.tokensByType("Color", brand.id) ]}
