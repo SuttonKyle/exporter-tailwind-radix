@@ -26,9 +26,8 @@ Pulsar.registerFunction(
         usePrefix = false;
         break;
       case "imx-avatar":
-        if (segments.length > 1) {
-          segments.shift();
-        }
+        segments.shift();
+        segments.unshift("avatar");
         break;
       case "imx-badge":
         segments.shift();
