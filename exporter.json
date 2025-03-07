@@ -1,8 +1,8 @@
 {
-  "id": "io.supernova.tailwind",
-  "name": "Tailwind",
-  "description": "Tailwind CSS exporter",
-  "author": "Florian Torres & Ivan Terpugov & Jiri Trecak",
+  "id": "io.supernova.tailwind.radix.colors",
+  "name": "Tailwind Radix Colors",
+  "description": "Tailwind CSS exporter for IMOS X radix colors",
+  "author": "Florian Torres & Ivan Terpugov & Jiri Trecak & Kyle Sutton",
   "organization": "Ascanio",
   "homepage": "https://ascan.io",
   "source_dir": "src",

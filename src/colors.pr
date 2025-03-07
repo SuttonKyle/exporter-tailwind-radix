@@ -5,6 +5,9 @@ Tokens are named by their group path and then name,
 and their value rendered using `rendered-color` blueprint
 
 *}
+@import 'tailwindcss';
+@import '@radix-ui/colors';
+
 @layer base {
   :root {
     --white-full: #ffffff;
@@ -13,6 +16,43 @@ and their value rendered using `rendered-color` blueprint
 }
 
 {[ let brand = ds.currentBrand() /]}
+@layer base {
+{[ let themes = ds.allThemes(brand.id) /]}
+{[ for theme in themes ]}
+{[ switch theme.name ]}
+{[ case "Light" ]}
+  :root {
+{[ for token in theme.overriddenTokens ]}
+{[ let tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
+{[ let tokenRoot = (tokenGroup.path.length > 0 ? tokenGroup.path[0] : "") /]}
+{[ if (tokenRoot === "core-color") ]}
+{[ let tokenSubgroup = (tokenGroup.path.length > 1 ? tokenGroup.path[1] : "") /]}
+{[ if (tokenSubgroup === "custom") ]}
+    {[ inject "rendered-token-var" context token /]}
+{[/]}
+{[/]}
+{[/]}
+
+  }
+
+{[ case "Dark" ]}
+  .dark {
+{[ for token in theme.overriddenTokens ]}
+{[ let tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
+{[ let tokenRoot = (tokenGroup.path.length > 0 ? tokenGroup.path[0] : "") /]}
+{[ if (tokenRoot === "core-color") ]}
+{[ let tokenSubgroup = (tokenGroup.path.length > 1 ? tokenGroup.path[1] : "") /]}
+{[ if (tokenSubgroup === "custom") ]}
+    {[ inject "rendered-token-var" context token /]}
+{[/]}
+{[/]}
+{[/]}
+
+  }
+{[/]}
+{[/]}
+}
+
 @theme {
 {[ for token in ds.tokensByType("Color", brand.id) ]}
 {[ let tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
