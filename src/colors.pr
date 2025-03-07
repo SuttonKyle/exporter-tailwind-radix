@@ -13,13 +13,12 @@ and their value rendered using `rendered-color` blueprint
 }
 
 {[ let brand = ds.currentBrand() /]}
-{[ let theme = ds.currentTheme() /]}
 @theme {
 {[ for token in ds.tokensByType("Color", brand.id) ]}
 {[ let tokenGroup = ds.tokenGroupContainingTokenId(token.id) /]}
 {[ let tokenRoot = (tokenGroup.path.length === 0 ? "" : tokenGroup.path[0]) /]}
 {[ if (tokenRoot !== "core-color") ]}
-    {[ inject "rendered-token-var" context token /]} {{ theme }}
+    {[ inject "rendered-token-var" context token /]}
 {[/]}
 {[/]}
 
